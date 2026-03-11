@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "HomeTaste",
+    "slug": "HomeTaste",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "HomeTaste a besoin d'accéder à l'appareil photo pour prendre des photos de vos recettes.",
+        "NSPhotoLibraryUsageDescription": "HomeTaste a besoin d'accéder à vos photos pour afficher les images de vos recettes.",
+        "NSPhotoLibraryAddUsageDescription": "HomeTaste a besoin d'ajouter des photos à votre bibliothèque si vous enregistrez une image."
+      }
+    },
+    "android": {
+      "permissions": [
+        "CAMERA",
+        "READ_MEDIA_IMAGES"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
