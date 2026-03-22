@@ -65,7 +65,6 @@ export function RegisterScreen({ navigation }: Props) {
         <View style={styles.spacer} />
         <Button label="Déjà un compte ?" onPress={() => navigation.navigate('Login')} variant="ghost" />
 
-        <Text style={styles.footer}>Couleurs douces, interface minimaliste.</Text>
       </Screen>
     </KeyboardAvoidingView>
   );

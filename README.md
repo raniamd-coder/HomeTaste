@@ -145,19 +145,23 @@ npm run web
 
 ## 8. Captures d’écran
 
-Remplace les placeholders ci-dessous par tes captures réelles :
-
 ### Écran de connexion
-![Connexion](./docs/screenshots/login-placeholder.png)
+![Connexion](./assets/screen-login.jpg)
 
 ### Liste des recettes
-![Liste des recettes](./docs/screenshots/recipes-list-placeholder.png)
+![Liste des recettes](./assets/screen-recipes-list.jpg)
 
 ### Ajout / édition d’une recette
-![Ajout recette](./docs/screenshots/add-recipe-placeholder.png)
+![Ajout recette](./assets/screen-add-edit-recipe.jpg)
 
 ### Détail d’une recette
-![Détail recette](./docs/screenshots/recipe-detail-placeholder.png)
+![Détail recette](./assets/screen-recipe-detail.jpg)
+
+### Captures supplémentaires
+![Agenda](./assets/screen-agenda.jpg)
+![Profil](./assets/screen-profile.jpg)
+![Paramètres](./assets/screen-settings.jpg)
+![Écran supplémentaire](./assets/screen-extra.jpg)
 
 ## 9. Vidéo de démonstration
 
