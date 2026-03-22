@@ -145,22 +145,25 @@ npm run web
 
 ## 8. Captures d’écran
 
-Affichage en miniatures pour une lecture plus claire du README :
+Présentation en grille 3-3-3 (miniatures cliquables) :
 
-<p align="center">
-  <img src="./assets/screen-login.jpg" alt="Connexion" width="210" />
-  <img src="./assets/screen-extra.jpg" alt="Écran supplémentaire" width="210" />
-  <img src="./assets/screen-recipes-list.jpg" alt="Liste des recettes" width="210" />
-  <img src="./assets/screen-add-edit-recipe.jpg" alt="Ajout / édition d'une recette" width="210" />
-  <img src="./assets/screen-recipe-detail.jpg" alt="Détail d'une recette" width="210" />
-</p>
-
-<p align="center">
-  <img src="./assets/screen-agenda.jpg" alt="Agenda" width="210" />
-  <img src="./assets/screen-profile.jpg" alt="Profil" width="210" />
-  <img src="./assets/screen-settings.jpg" alt="Paramètres" width="210" />
-  
-</p>
+<table align="center">
+  <tr>
+    <td align="center"><b>Connexion</b><br /><a href="./assets/screen-connexion.jpg"><img src="./assets/screen-connexion.jpg" alt="Connexion" width="170" /></a></td>
+    <td align="center"><b>Inscription</b><br /><a href="./assets/screen-inscription.jpg"><img src="./assets/screen-inscription.jpg" alt="Inscription" width="170" /></a></td>
+    <td align="center"><b>Paramètres</b><br /><a href="./assets/screen-parametres.jpg"><img src="./assets/screen-parametres.jpg" alt="Paramètres" width="170" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Accueil</b><br /><a href="./assets/screen-accueil.jpg"><img src="./assets/screen-accueil.jpg" alt="Accueil" width="170" /></a></td>
+    <td align="center"><b>Ajout recette</b><br /><a href="./assets/screen-recette-ajout-1.jpg"><img src="./assets/screen-recette-ajout-1.jpg" alt="Ajout recette" width="170" /></a></td>
+    <td align="center"><b>Détail recette</b><br /><a href="./assets/screen-recette-ajout-2.jpg"><img src="./assets/screen-recette-ajout-2.jpg" alt="Détail recette" width="170" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Agenda</b><br /><a href="./assets/screen-agenda.jpg"><img src="./assets/screen-agenda.jpg" alt="Agenda" width="170" /></a></td>
+    <td align="center"><b>Détail agenda</b><br /><a href="./assets/screen-agenda-details.jpg"><img src="./assets/screen-agenda-details.jpg" alt="Détail agenda" width="170" /></a></td>
+    <td align="center"><b>Modifier paramètres</b><br /><a href="./assets/screen-parametres-edit.jpg"><img src="./assets/screen-parametres-edit.jpg" alt="Modifier paramètres" width="170" /></a></td>
+  </tr>
+</table>
 
 ## 9. Vidéo de démonstration
 
