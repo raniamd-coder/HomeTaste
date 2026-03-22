@@ -185,6 +185,4 @@ npm run web
 - Tests automatisés (unitaires, intégration, e2e).
 - CI/CD mobile (builds automatiques, distribution test).
 
-## Auteur
 
-Projet réalisé dans le cadre d’une évaluation en développement mobile : HomeTaste.
