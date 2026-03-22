@@ -96,6 +96,10 @@ export function RecipeDetailScreen({ navigation, route }: Props) {
         })()}
         {!!recipe?.description && <Text style={styles.text}>{recipe.description}</Text>}
 
+        {typeof recipe?.calories === 'number' && recipe.calories > 0 ? (
+          <Text style={styles.calories}>{recipe.calories} kcal</Text>
+        ) : null}
+
         <Text style={styles.sectionTitle}>Ingrédients</Text>
         <Text style={styles.text}>{recipe?.ingredients || '—'}</Text>
       </View>
@@ -152,6 +156,11 @@ function createStyles(colors: ThemeColors) {
     text: {
       color: colors.mutedText,
       lineHeight: 20,
+    },
+    calories: {
+      marginTop: spacing.sm,
+      color: colors.primary,
+      fontWeight: '800',
     },
     muted: {
       color: colors.mutedText,

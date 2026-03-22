@@ -1,4 +1,5 @@
 export { AddEditRecipeScreen } from './AddEditRecipeScreen';
+export { AgendaScreen } from './AgendaScreen';
 export { AccountScreen } from './AccountScreen';
 export { LoginScreen } from './LoginScreen';
 export { RecipeDetailScreen } from './RecipeDetailScreen';

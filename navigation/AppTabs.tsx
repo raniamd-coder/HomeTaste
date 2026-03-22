@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 import { useColors } from '../context/ThemeContext';
+import { AgendaScreen } from '../screens';
 import { AddStackNavigator } from './AddStack';
 import { ProfileStackNavigator } from './ProfileStack';
 import { RecipesStackNavigator } from './RecipesStack';
@@ -11,6 +12,7 @@ import { RecipesStackNavigator } from './RecipesStack';
 type AppTabsParamList = {
   HomeTab: undefined;
   AddTab: undefined;
+  AgendaTab: undefined;
   ProfileTab: undefined;
 };
 
@@ -39,6 +41,10 @@ export function AppTabs() {
                 ? focused
                   ? 'add-circle'
                   : 'add-circle-outline'
+                : route.name === 'AgendaTab'
+                  ? focused
+                    ? 'calendar'
+                    : 'calendar-outline'
                 : focused
                   ? 'person'
                   : 'person-outline';
@@ -50,11 +56,14 @@ export function AppTabs() {
             ? 'Accueil'
             : route.name === 'AddTab'
               ? 'Ajouter'
+              : route.name === 'AgendaTab'
+                ? 'Agenda'
               : 'Profil',
       })}
     >
       <Tab.Screen name="HomeTab" component={RecipesStackNavigator} />
       <Tab.Screen name="AddTab" component={AddStackNavigator} />
+      <Tab.Screen name="AgendaTab" component={AgendaScreen} />
       <Tab.Screen name="ProfileTab" component={ProfileStackNavigator} />
     </Tab.Navigator>
   );

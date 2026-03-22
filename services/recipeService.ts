@@ -10,6 +10,11 @@ function cacheKey(userId: string) {
   return `${CACHE_KEY_PREFIX}${userId}`;
 }
 
+function isCaloriesSchemaCacheError(message: string) {
+  const msg = message.toLowerCase();
+  return msg.includes('calories') && msg.includes('schema cache');
+}
+
 async function getUserIdOrThrow() {
   const { data, error } = await supabase.auth.getUser();
   if (error) throw new Error(error.message);
@@ -58,7 +63,7 @@ export const recipeService = {
   async createMyRecipe(input: RecipeCreateInput): Promise<Recipe> {
     const userId = await getUserIdOrThrow();
 
-    const { data, error } = await supabase
+    let { data, error } = await supabase
       .from(RECIPES_TABLE)
       .insert({
         user_id: userId,
@@ -66,15 +71,38 @@ export const recipeService = {
         description: input.description,
         ingredients: input.ingredients,
         category: input.category,
+        calories: input.calories,
         image_url: input.image_url,
       })
       .select('*')
       .single();
 
+    if (error && isCaloriesSchemaCacheError(error.message || '')) {
+      // Temporary compatibility path when remote schema cache doesn't expose calories yet.
+      const retry = await supabase
+        .from(RECIPES_TABLE)
+        .insert({
+          user_id: userId,
+          title: input.title,
+          description: input.description,
+          ingredients: input.ingredients,
+          category: input.category,
+          image_url: input.image_url,
+        })
+        .select('*')
+        .single();
+
+      data = retry.data;
+      error = retry.error;
+    }
+
     if (error) {
       const msg = error.message || 'Erreur inconnue';
       if (msg.toLowerCase().includes('column') && msg.toLowerCase().includes('category') && msg.toLowerCase().includes('does not exist')) {
         throw new Error("Base de données non mise à jour: la colonne 'category' manque. Exécutez le SQL: supabase/add_category.sql puis réessayez.");
+      }
+      if (msg.toLowerCase().includes('column') && msg.toLowerCase().includes('calories') && msg.toLowerCase().includes('does not exist')) {
+        throw new Error("Base de données non mise à jour: la colonne 'calories' manque. Exécutez le SQL: supabase/add_calories.sql puis réessayez.");
       }
       throw new Error(msg);
     }
@@ -84,13 +112,14 @@ export const recipeService = {
   async updateMyRecipe(recipeId: string, input: RecipeUpdateInput): Promise<Recipe> {
     const userId = await getUserIdOrThrow();
 
-    const { data, error } = await supabase
+    let { data, error } = await supabase
       .from(RECIPES_TABLE)
       .update({
         title: input.title,
         description: input.description,
         ingredients: input.ingredients,
         category: input.category,
+        calories: input.calories,
         image_url: input.image_url,
       })
       .eq('id', recipeId)
@@ -98,10 +127,32 @@ export const recipeService = {
       .select('*')
       .single();
 
+    if (error && isCaloriesSchemaCacheError(error.message || '')) {
+      const retry = await supabase
+        .from(RECIPES_TABLE)
+        .update({
+          title: input.title,
+          description: input.description,
+          ingredients: input.ingredients,
+          category: input.category,
+          image_url: input.image_url,
+        })
+        .eq('id', recipeId)
+        .eq('user_id', userId)
+        .select('*')
+        .single();
+
+      data = retry.data;
+      error = retry.error;
+    }
+
     if (error) {
       const msg = error.message || 'Erreur inconnue';
       if (msg.toLowerCase().includes('column') && msg.toLowerCase().includes('category') && msg.toLowerCase().includes('does not exist')) {
         throw new Error("Base de données non mise à jour: la colonne 'category' manque. Exécutez le SQL: supabase/add_category.sql puis réessayez.");
+      }
+      if (msg.toLowerCase().includes('column') && msg.toLowerCase().includes('calories') && msg.toLowerCase().includes('does not exist')) {
+        throw new Error("Base de données non mise à jour: la colonne 'calories' manque. Exécutez le SQL: supabase/add_calories.sql puis réessayez.");
       }
       throw new Error(msg);
     }

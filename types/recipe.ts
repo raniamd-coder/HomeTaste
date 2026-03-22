@@ -7,6 +7,7 @@ export type Recipe = {
   description: string;
   ingredients: string;
   category: RecipeCategory;
+  calories: number | null;
   image_url: string | null;
   created_at: string;
 };
@@ -16,6 +17,7 @@ export type RecipeCreateInput = {
   description: string;
   ingredients: string;
   category: RecipeCategory;
+  calories: number | null;
   image_url: string | null;
 };
 

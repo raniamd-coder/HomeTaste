@@ -8,6 +8,7 @@ import { Alert, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'rea
 import { Screen } from '../components/Screen';
 import { Button, ErrorBanner, Field } from '../components/ui';
 import { useColors } from '../context/ThemeContext';
+import { estimateCaloriesFromIngredients } from '../services/calorieEstimator';
 import type { RecipesStackParamList } from '../navigation/types';
 import { recipeService } from '../services/recipeService';
 import type { Recipe, RecipeCategory } from '../types/recipe';
@@ -63,7 +64,8 @@ export function AddEditRecipeScreen({ navigation, route }: Props) {
     setLocalImageUri(null);
   }, []);
 
-  const canSubmit = useMemo(() => title.trim().length > 0, [title]);
+  const estimatedCalories = useMemo(() => estimateCaloriesFromIngredients(ingredients), [ingredients]);
+  const canSubmit = useMemo(() => title.trim().length > 0 && ingredients.trim().length > 0, [ingredients, title]);
 
   const loadRecipe = useCallback(async () => {
     if (!recipeId) return;
@@ -172,6 +174,7 @@ export function AddEditRecipeScreen({ navigation, route }: Props) {
           description: description.trim(),
           ingredients: ingredients.trim(),
           category,
+          calories: estimatedCalories,
           image_url: finalImageUrl,
         });
         navigation.goBack();
@@ -181,6 +184,7 @@ export function AddEditRecipeScreen({ navigation, route }: Props) {
           description: description.trim(),
           ingredients: ingredients.trim(),
           category,
+          calories: estimatedCalories,
           image_url: finalImageUrl,
         });
         resetForm();
@@ -230,6 +234,7 @@ export function AddEditRecipeScreen({ navigation, route }: Props) {
         placeholder="Liste des ingrédients (texte)"
         multiline
       />
+      <Text style={styles.calorieHint}>Calories estimées automatiquement: {estimatedCalories} kcal</Text>
 
       <Text style={styles.sectionTitle}>Catégorie</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categories}>
@@ -301,6 +306,11 @@ function createStyles(colors: ThemeColors) {
       marginBottom: spacing.sm,
       fontWeight: '800',
       color: colors.text,
+    },
+    calorieHint: {
+      color: colors.mutedText,
+      fontWeight: '700',
+      marginBottom: spacing.sm,
     },
     categories: {
       paddingBottom: spacing.md,

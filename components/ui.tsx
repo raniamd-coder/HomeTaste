@@ -43,7 +43,7 @@ type FieldProps = {
   secureTextEntry?: boolean;
   multiline?: boolean;
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
-  keyboardType?: 'default' | 'email-address';
+  keyboardType?: 'default' | 'email-address' | 'number-pad' | 'decimal-pad';
 };
 
 export function Field({ label, value, onChangeText, placeholder, secureTextEntry, multiline, autoCapitalize, keyboardType }: FieldProps) {

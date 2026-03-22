@@ -45,6 +45,9 @@ export function RecipeCard({ recipe, onPress }: Props) {
             {recipe.description}
           </Text>
         )}
+        {typeof recipe.calories === 'number' && recipe.calories > 0 ? (
+          <Text style={styles.calories}>{recipe.calories} kcal</Text>
+        ) : null}
       </View>
     </Pressable>
   );
@@ -87,6 +90,12 @@ function createStyles(colors: ThemeColors) {
       marginTop: spacing.xs,
       color: colors.mutedText,
       lineHeight: 18,
+    },
+    calories: {
+      marginTop: spacing.sm,
+      color: colors.primary,
+      fontWeight: '800',
+      fontSize: 12,
     },
   });
 }
