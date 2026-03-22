@@ -145,23 +145,21 @@ npm run web
 
 ## 8. Captures d’écran
 
-### Écran de connexion
-![Connexion](./assets/screen-login.jpg)
+Affichage en miniatures pour une lecture plus claire du README :
 
-### Liste des recettes
-![Liste des recettes](./assets/screen-recipes-list.jpg)
+<p align="center">
+  <img src="./assets/screen-login.jpg" alt="Connexion" width="210" />
+  <img src="./assets/screen-recipes-list.jpg" alt="Liste des recettes" width="210" />
+  <img src="./assets/screen-add-edit-recipe.jpg" alt="Ajout / édition d'une recette" width="210" />
+  <img src="./assets/screen-recipe-detail.jpg" alt="Détail d'une recette" width="210" />
+</p>
 
-### Ajout / édition d’une recette
-![Ajout recette](./assets/screen-add-edit-recipe.jpg)
-
-### Détail d’une recette
-![Détail recette](./assets/screen-recipe-detail.jpg)
-
-### Captures supplémentaires
-![Agenda](./assets/screen-agenda.jpg)
-![Profil](./assets/screen-profile.jpg)
-![Paramètres](./assets/screen-settings.jpg)
-![Écran supplémentaire](./assets/screen-extra.jpg)
+<p align="center">
+  <img src="./assets/screen-agenda.jpg" alt="Agenda" width="210" />
+  <img src="./assets/screen-profile.jpg" alt="Profil" width="210" />
+  <img src="./assets/screen-settings.jpg" alt="Paramètres" width="210" />
+  <img src="./assets/screen-extra.jpg" alt="Écran supplémentaire" width="210" />
+</p>
 
 ## 9. Vidéo de démonstration
 
