@@ -145,7 +145,7 @@ npm run web
 
 ## 8. Captures d’écran
 
-Présentation en grille 3-3-3 (miniatures cliquables) :
+
 
 <table align="center">
   <tr>
